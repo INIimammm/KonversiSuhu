@@ -3,6 +3,7 @@ package org.d3if3045.convertsuhu.ui.hitung
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.fragment.app.Fragment
@@ -11,6 +12,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if3045.convertsuhu.R
 import org.d3if3045.convertsuhu.databinding.FragmentHitungBinding
+import org.d3if3045.convertsuhu.db.SuhuDao
+import org.d3if3045.convertsuhu.db.SuhuDb
 import org.d3if3045.convertsuhu.model.HasilKonversi
 
 
@@ -18,7 +21,10 @@ class HitungFragment : Fragment() {
 
     private lateinit var binding : FragmentHitungBinding
     private val viewModel: HitungViewModel by lazy {
-        ViewModelProvider(requireActivity())[HitungViewModel::class.java]
+        val db = SuhuDb.getInstance(requireContext())
+        val factory = HitungViewModelFactory(db.dao)
+
+        ViewModelProvider(this, factory)[HitungViewModel::class.java]
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -56,6 +62,10 @@ class HitungFragment : Fragment() {
             )
         }
         viewModel.getHasilKonversi().observe(requireActivity(),{showResult(it)})
+        viewModel.data.observe(viewLifecycleOwner) {
+            if (it == null) return@observe
+            Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
+        }
         binding.buttonReset.setOnClickListener{reset()}
         binding.buttonShare.setOnClickListener{shareData()}
     }
@@ -98,6 +108,8 @@ class HitungFragment : Fragment() {
     private fun reset() {
         binding.buttonConvert.visibility = View.VISIBLE
         binding.inputTemperature.text?.clear()
+        binding.convertTo.text?.clear()
+        binding.convertFrom.text?.clear()
         binding.result.visibility = View.GONE
         binding.resultConverter.visibility = View.GONE
         binding.buttonReset.visibility = View.GONE

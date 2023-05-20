@@ -3,11 +3,20 @@ package org.d3if3045.convertsuhu.ui.hitung
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.d3if3045.convertsuhu.db.SuhuDao
+import org.d3if3045.convertsuhu.db.SuhuEntity
 import org.d3if3045.convertsuhu.model.HasilKonversi
 import org.d3if3045.convertsuhu.model.Suhu
 
-class HitungViewModel : ViewModel() {
+class HitungViewModel (private val db: SuhuDao): ViewModel() {
     private val hasilKonversi = MutableLiveData<HasilKonversi?>()
+
+    val data = db.getLastSuhu()
+
 
     fun hitungSuhu(value: Float, fromUnit: String, toUnit: String) {
         val data = Suhu(
@@ -16,9 +25,19 @@ class HitungViewModel : ViewModel() {
             to = toUnit
         )
         hasilKonversi.value = data.HitungSuhu()
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val suhu = SuhuEntity(
+                    value = value,
+                    from = fromUnit,
+                    to = toUnit
+                )
+                db.insert(suhu)
+            }
+        }
     }
 
-    fun Suhu.HitungSuhu(): HasilKonversi{
+    fun Suhu.HitungSuhu(): HasilKonversi {
         val inputSuhu = value
         val fromSuhu = from
         val toSuhu = to
@@ -45,6 +64,9 @@ class HitungViewModel : ViewModel() {
             }
         }
         return HasilKonversi(hasil)
+
     }
+
     fun getHasilKonversi(): LiveData<HasilKonversi?> = hasilKonversi
 }
+
