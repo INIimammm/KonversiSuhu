@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConvertSuhu</string>
+    <string name="app_name">TemperatureConverter</string>
     <string name="temperature_input">Input Temperature</string>
     <string name="from">From</string>
     <string name="to">To</string>
@@ -8,10 +8,27 @@
     <string name="result">Result :</string>
     <string name="resultConverter">99</string>
     <string name="btnReset">Reset</string>
+    <string name="perhitungan_suhu"> -\tRumus dari skala Celcius ke skala Fahrenheit => T (derajat C) = 9/5 T derajat Celcius + 32.\n
+-\tRumus dari skala Celcius ke Kelvin => T (K) = T derajat C + 273.\n
+-\tRumus dari skala Fahrenheit ke skala Celcius => T (derajat C) = 5/9 T derajat F – 32.\n
+-\tRumus dari skala Fahrenheit ke Kelvin => T (K) = 5/9 ( T derajat F – 32) + 273.\n
+-\tRumus dari skala Kelvin ke skala Celcius => T (derajat C) = TK – 273.\n
+-\tRumus dari skala Kelvin ke skala Fahrenheit => T (derajat F) = 9/5 (TK-273) + 32.\n
+    </string>
+    <string name="btnRumus">Rumus</string>
+    <string name="copyright">Aplikasi Temperature Converter adalah aplikasi berbasis android yang dibuat menggunakan bahasa kotlin. Aplikasi ini berfungsi untuk mengkonversi suhu dari masukan pengguna dan pengguna dapat memilih berbagai jenis suhu seperti Celcius(C), Fahrenheit(F) , dan Kelvin (K). Setelah pengguna memasukkan angka, pengguna dapat memilih jenis suhu yang diinginkan dan memilih untuk dikonversi ke suhu yang diinginkan oleh pengguna. Kemudian pengguna dapat mengeklik tombol yang telah disediakan untuk melihat hasil konversi tersebut.\n\nAplikasi ini dibuat
+        untuk Assesment Mobpro 1.
+        \n\nCopyright © 2023 imamsaktii.\nAll rights reserved.
+        </string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="btnShare">Bagikan</string>
+    <string name="bagikan_template">Suhu Masukan: %1$s \nSuhu Awal: %2$s
+\nSuhu Akhir: %3$s\nHasil: %4$s</string>
+
 
     <string-array name="temperature_units">
         <item>Kelvin</item>
-        <item>Celsius</item>
+        <item>Celcius</item>
         <item>Fahrenheit</item>
     </string-array>
 </resources>
