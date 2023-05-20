@@ -17,7 +17,7 @@ import org.d3if3045.convertsuhu.db.SuhuDb
 import org.d3if3045.convertsuhu.model.HasilKonversi
 
 
-class HitungFragment : Fragment() {
+class   HitungFragment : Fragment() {
 
     private lateinit var binding : FragmentHitungBinding
     private val viewModel: HitungViewModel by lazy {
@@ -31,11 +31,18 @@ class HitungFragment : Fragment() {
         inflater.inflate(R.menu.options_menu, menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_about) {
-            findNavController().navigate(
-                R.id.action_hitungFragment_to_aboutFragment)
-            return true
+        when(item.itemId) {
+            R.id.menu_histori -> {
+                findNavController().navigate(
+                R.id.action_hitungFragment_to_historiFragment)
+                return true
+            }
+            R.id.menu_about -> {
+                findNavController().navigate(
+                    R.id.action_hitungFragment_to_aboutFragment)
+                return true}
         }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -46,7 +53,6 @@ class HitungFragment : Fragment() {
         binding = FragmentHitungBinding.inflate(layoutInflater,container,false)
         setHasOptionsMenu(true)
         return binding.root
-
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val temperature = resources.getStringArray(R.array.temperature_units)
@@ -62,10 +68,6 @@ class HitungFragment : Fragment() {
             )
         }
         viewModel.getHasilKonversi().observe(requireActivity(),{showResult(it)})
-        viewModel.data.observe(viewLifecycleOwner) {
-            if (it == null) return@observe
-            Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
-        }
         binding.buttonReset.setOnClickListener{reset()}
         binding.buttonShare.setOnClickListener{shareData()}
     }

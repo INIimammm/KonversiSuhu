@@ -9,6 +9,11 @@ import androidx.room.Query
 interface SuhuDao {
     @Insert
     fun insert(suhu: SuhuEntity)
-    @Query("SELECT * FROM suhu ORDER BY id DESC LIMIT 1")
-    fun getLastSuhu(): LiveData<SuhuEntity?>
+
+    @Query("SELECT * FROM suhu ORDER BY id DESC")
+    fun getLastSuhu(): LiveData<List<SuhuEntity>>
+
+    @Query("DELETE FROM suhu")
+    fun clearData()
+
 }

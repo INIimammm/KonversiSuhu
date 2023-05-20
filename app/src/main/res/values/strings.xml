@@ -24,6 +24,15 @@
     <string name="btnShare">Bagikan</string>
     <string name="bagikan_template">Suhu Masukan: %1$s \nSuhu Awal: %2$s
 \nSuhu Akhir: %3$s\nHasil: %4$s</string>
+    <string name="data_kosong">Tidak ada data</string>
+    <string name="histori">Histori</string>
+
+    <string name="hasil_x">Hasil Suhu: %1$.2f</string>
+    <string name="data_x">Input Suhu: %1$.2f - Suhu awal: %2$s - \nSuhu akhir: %3$s</string>
+    <string name="hapus_histori">Hapus Histori</string>
+    <string name="konfirmasi_hapus">Hapus semua histori?</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
 
 
     <string-array name="temperature_units">
