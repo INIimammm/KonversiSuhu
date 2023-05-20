@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ConvertSuhu</string>
+    <string name="temperature_input">Input Temperature</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="select">Select</string>
+    <string name="btnConvert">Convert</string>
+    <string name="result">Result :</string>
+    <string name="resultConverter">99</string>
+    <string name="btnReset">Reset</string>
+
+    <string-array name="temperature_units">
+        <item>Kelvin</item>
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+</resources>
