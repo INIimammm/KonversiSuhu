@@ -10,7 +10,6 @@ import kotlinx.coroutines.withContext
 import org.d3if3045.convertsuhu.db.SuhuDao
 import org.d3if3045.convertsuhu.db.SuhuEntity
 import org.d3if3045.convertsuhu.model.HasilKonversi
-import org.d3if3045.convertsuhu.model.Suhu
 import org.d3if3045.convertsuhu.model.hitungSuhu
 
 class HitungViewModel (private val db: SuhuDao): ViewModel() {

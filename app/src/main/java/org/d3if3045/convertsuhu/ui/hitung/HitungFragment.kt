@@ -17,7 +17,7 @@ import org.d3if3045.convertsuhu.db.SuhuDb
 import org.d3if3045.convertsuhu.model.HasilKonversi
 
 
-class   HitungFragment : Fragment() {
+class HitungFragment : Fragment() {
 
     private lateinit var binding : FragmentHitungBinding
     private val viewModel: HitungViewModel by lazy {
@@ -40,6 +40,10 @@ class   HitungFragment : Fragment() {
             R.id.menu_about -> {
                 findNavController().navigate(
                     R.id.action_hitungFragment_to_aboutFragment)
+                return true}
+            R.id.menu_penemu_suhu -> {
+                findNavController().navigate(
+                    R.id.action_hitungFragment_to_penemuSuhuFragment)
                 return true}
         }
 

@@ -5,6 +5,10 @@
         android:title="@string/tentang_aplikasi"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_penemu_suhu"
+        android:title="@string/penemuSuhu"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_histori"
         android:icon="@drawable/baseline_history_24"
         android:title="@string/histori"

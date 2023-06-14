@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_hitungFragment_to_historiFragment"
             app:destination="@id/historiFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_penemuSuhuFragment"
+            app:destination="@id/penemuSuhuFragment" />
     </fragment>
     <fragment
         android:id="@+id/rumusFragment"
@@ -34,4 +37,8 @@
         android:id="@+id/historiFragment"
         android:name="org.d3if3045.convertsuhu.ui.histori.HistoriFragment"
         android:label="@string/histori" />
+    <fragment
+        android:id="@+id/penemuSuhuFragment"
+        android:name="org.d3if3045.convertsuhu.ui.penemu_suhu.PenemuSuhuFragment"
+        android:label="PenemuSuhuFragment" />
 </navigation>

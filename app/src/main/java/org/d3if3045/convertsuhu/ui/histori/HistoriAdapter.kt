@@ -1,8 +1,5 @@
 package org.d3if3045.convertsuhu.ui.histori
 
-
-
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

@@ -33,6 +33,8 @@
     <string name="konfirmasi_hapus">Hapus semua histori?</string>
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
+    <string name="penemuSuhu">Penemu Suhu</string>
+    <string name="koneksi_error">Koneksi Error</string>
 
 
     <string-array name="temperature_units">

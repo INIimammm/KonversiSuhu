@@ -40,9 +40,7 @@ class HistoriFragment : Fragment() {
         viewModel.data.observe(viewLifecycleOwner) {
             binding.emptyView.visibility = if (it.isEmpty())
                 View.VISIBLE else View.GONE
-            myAdapter.submitList(it)
-
-        }
+            myAdapter.submitList(it)}
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -66,7 +64,4 @@ class HistoriFragment : Fragment() {
             }
             .show()
     }
-
-
-
 }
